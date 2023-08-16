@@ -92,15 +92,21 @@ label {
 }
   
 input {
+  height: 25px;
   box-sizing: border-box;
   width: 60%;
-  border: 1px solid #4F4846;
+  margin-bottom: 5px;
 }
 
-/*textarea {
+input:hover{
+  box-shadow: 2px 2px 2px 2px black;
+}
+
+textarea {
   vertical-align: top;
   height: 60px;
-}*/
+  margin-bottom: 5px;
+}
   
 button {
   height: 40px;
