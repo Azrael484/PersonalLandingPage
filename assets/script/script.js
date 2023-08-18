@@ -18,11 +18,11 @@ console.log(visitors);
 
 var formEl = document.getElementById("mark");
 
-formEl.addEventListener('submit', function (event){
+formEl.addEventListener('submit', function (event) {
 
     var nameInput = nameInputEl.value.trim();
     console.log(nameInput);
-    var emailInput =  emailInputEl.value;
+    var emailInput = emailInputEl.value;
     console.log(emailInput);
     var commentInput = commentInputEl.value.trim();
     console.log(commentInput);
@@ -44,7 +44,7 @@ formEl.addEventListener('submit', function (event){
 showVisitorsBtn.addEventListener('click', displayVisitors);
 
 function displayVisitors(event) {
-    
+
     event.stopPropagation();
 
     visitorsContainer.innerHTML = "";
@@ -60,38 +60,71 @@ function displayVisitors(event) {
         visitorInfo.textContent = "Sadly, no one has yet left a mark on this page."
         visitorsContainer.append(visitorInfo);
 
-    } else { 
+    } else {
         var visitorsList = document.createElement("ul");
         visitorsContainer.append(visitorsList);
 
         visitors.forEach(visitor => {
+
             
+            var commentLineBreaks = visitor.comment.split("\n");
+
+            var commentLines = [];
+
+            commentLines.push(commentLineBreaks[0]);
+
+            for (let i = 1; i < commentLineBreaks.length; i++) {
+
+                var lineBreak = "<br/>";
+
+                commentLines.push(lineBreak + commentLineBreaks[i]);
+            }
+
+            var formattedComment = commentLines[0]; // Type string.
+
+            for(let i=1; i<commentLines.length; i++){
+
+                formattedComment += commentLines[i];
+            }
 
             var visitorListItem = document.createElement("li");
+            visitorListItem.style.textDecoration =  "none";
+            visitorListItem.style.textShadow = "none";
             visitorsList.append(visitorListItem);
             var visitorInfo = document.createElement("p");
             visitorListItem.append(visitorInfo);
-            visitorInfo.innerHTML = ` <span id="name"> ${visitor.name} </span> ,whose email is <span id="email"> ${visitor.email} </span> was here, and left the following comment: 
-                                      <span id="comment"> ${visitor.comment} </span> `;
+            visitorInfo.innerHTML = ` <span id="name"> ${visitor.name} </span> ,whose email is <a id="email" href = "mailto:${visitor.email}" > ${visitor.email} </a> was here, and left the following comment:
+            <p class = "comment" >${formattedComment} <p>`;
+
+
+        
 
         });
 
     }
 }
 
-nameInputEl.addEventListener('click', ()=>{
+//function editComment(comment){
+
+
+// return formattedComment;
+
+
+//}
+
+nameInputEl.addEventListener('click', () => {
 
     nameInputEl.setAttribute("placeholder", "");
 });
 
-emailInputEl.addEventListener('click', ()=>{
+emailInputEl.addEventListener('click', () => {
 
     emailInputEl.setAttribute("placeholder", "");
 });
 
-commentInputEl.addEventListener('click', ()=>{
-    
-    commentInputEl.innerText ="";
+commentInputEl.addEventListener('click', () => {
+
+    commentInputEl.innerText = "";
 });
 console.log(localStorage.visitors);
 

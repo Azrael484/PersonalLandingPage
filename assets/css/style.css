@@ -2,7 +2,9 @@
 * {
   margin:0;
   padding:0;  
-  --span-color: grey ;
+  --name-color: grey ;
+  --email-color: rgba(255,127,0,.5);
+  --comment-color: aqua;
 
 }
 
@@ -29,11 +31,11 @@ li {
   padding: 0px 20px;
   text-decoration: none;
 }
-li:hover{
+#email, li:hover{
   text-decoration: underline rgba(255,127,0,.5) dotted 5px;
 }
-li:active{
- text-shadow: 0 0 10px black;
+#email, li:active{
+ text-shadow: 0 0 10px white;
 }
 
 a {
@@ -79,16 +81,12 @@ section {
   background-color:  #E8CEBF;
 }
 
-span {
 
-  color : "cyan";
-  font-style : "italic";
 
-}
 form {
   /* Center the form on the page */
   margin: 0 auto;
-  width: 33%;
+  width: 40%;
   padding: 10px;
   border: 5px solid #DDAF94;
   border-radius: 20px;
@@ -96,14 +94,18 @@ form {
 
 label {
   display: inline-block;
+  
   width: 20%;
 }
   
 input {
-  height: 25px;
+  height: 30px;
   box-sizing: border-box;
-  width: 60%;
+  width: 65%;
+  padding-left: auto;
+  padding-right: auto;
   margin-bottom: 5px;
+
 }
 
 input:hover{
@@ -127,22 +129,23 @@ button {
 
 #name {
 
-  color: var(--span-color);
+  color: var(--name-color);
   font-style: italic;
 
 }
 
 #email{
 
-  color: var(--span-color);
+  color: var(--email-color);
   font-weight: bold;
 }
 
-#comment{
+.comment{
 
-  color: var(--span-color);
+  color: var(--comment-color);
   font-variant: small-caps;
-
+  text-indent: 20px;
+  text-align: justify;
  }
 /* Class Selectors */
 .text-center {
