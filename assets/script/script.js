@@ -71,13 +71,27 @@ function displayVisitors(event) {
             visitorsList.append(visitorListItem);
             var visitorInfo = document.createElement("p");
             visitorListItem.append(visitorInfo);
-            visitorInfo.textContent = visitor.name + " ,whose email is " + visitor.email + " was here, and left the following comment: ";
-            var visitorComment = document.createElement("span");
-            visitorInfo.append(visitorComment);
-            visitorComment.textContent = visitor.comment;
+            visitorInfo.innerHTML = ` <span id="name"> ${visitor.name} </span> ,whose email is <span id="email"> ${visitor.email} </span> was here, and left the following comment: 
+                                      <span id="comment"> ${visitor.comment} </span> `;
 
         });
 
     }
 }
+
+nameInputEl.addEventListener('click', ()=>{
+
+    nameInputEl.setAttribute("placeholder", "");
+});
+
+emailInputEl.addEventListener('click', ()=>{
+
+    emailInputEl.setAttribute("placeholder", "");
+});
+
+commentInputEl.addEventListener('click', ()=>{
+    
+    commentInputEl.innerText ="";
+});
 console.log(localStorage.visitors);
+

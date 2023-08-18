@@ -2,6 +2,8 @@
 * {
   margin:0;
   padding:0;  
+  --span-color: grey ;
+
 }
 
 /* Element Selectors */
@@ -77,6 +79,12 @@ section {
   background-color:  #E8CEBF;
 }
 
+span {
+
+  color : "cyan";
+  font-style : "italic";
+
+}
 form {
   /* Center the form on the page */
   margin: 0 auto;
@@ -114,7 +122,28 @@ button {
   background-color: #4F4846;
   color: #FDF8F5;
 }
- 
+
+/*Id selectors*/
+
+#name {
+
+  color: var(--span-color);
+  font-style: italic;
+
+}
+
+#email{
+
+  color: var(--span-color);
+  font-weight: bold;
+}
+
+#comment{
+
+  color: var(--span-color);
+  font-variant: small-caps;
+
+ }
 /* Class Selectors */
 .text-center {
   text-align: center;
